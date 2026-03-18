@@ -6,4 +6,5 @@
 }:
 
 {
+  system.stateVersion = 6;
 }
