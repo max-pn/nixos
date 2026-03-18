@@ -50,7 +50,7 @@
       finalAttrs: previousAttrs: {
         version = "26.2.2-57373";
         src = previousAttrs.src.overrideAttrs {
-          outputHash = pkgs.lib.fakeHash;
+          outputHash = "sha256-QsMMPzF7RRw2etxHLiOHc8ofSrO+rk/3T1Y3+zAnwnM=";
         };
       }
     );
