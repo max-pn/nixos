@@ -27,9 +27,8 @@
     useXkbConfig = true;
   };
 
-  # X11 windowing system
+  # Keyboard layout
   services.xserver = {
-    enable = true;
     xkb = {
       layout = "us";
       variant = "intl";
@@ -43,6 +42,13 @@
   services.openssh.enable = true;
   services.openssh.settings.PasswordAuthentication = true;
   services.openssh.settings.PermitRootLogin = "no";
+
+  # System-wide packages
+  environment.systemPackages = with pkgs; [
+    git
+    gnumake
+    vim
+  ];
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.

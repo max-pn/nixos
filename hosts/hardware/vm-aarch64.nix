@@ -44,6 +44,16 @@
   ];
 
   nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
-  hardware.parallels.enable = true;
+  hardware.parallels = {
+    enable = true;
+    package = pkgs.prl-tools.overrideAttrs (
+      finalAttrs: previousAttrs: {
+        version = "26.2.2-57373";
+        src = previousAttrs.src.overrideAttrs {
+          outputHash = pkgs.lib.fakeHash;
+        };
+      }
+    );
+  };
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "prl-tools" ];
 }

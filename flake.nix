@@ -5,10 +5,27 @@
     # Primary nixpkgs repository. This is the main source used in the
     # configurations. Changing this wil impact the entire config system.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+
+    # Nix darwin for MacOS system functionality configuration
+    darwin = {
+      url = "github:nix-darwin/nix-darwin/nix-darwin-25.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # WSL installer
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    { self, nixpkgs, ... }@inputs:
+    {
+      self,
+      nixpkgs,
+      darwin,
+      ...
+    }@inputs:
     let
       mkSystem = import ./lib/mksystem.nix {
         inherit nixpkgs inputs;
@@ -26,7 +43,7 @@
         wsl = true;
       };
 
-      nixosConfigurations.darwin = mkSystem "darwin" {
+      darwinConfigurations.darwin = mkSystem "darwin" {
         system = "aarch64-darwin";
         user = "max-pn";
         darwin = true;

@@ -1,7 +1,7 @@
 # Default Connectivity for Nix hosts
 NIXADDR ?= nixos
 NIXPORT ?= 22
-NIXUSER ?= nixos
+NIXUSER ?= max-pn
 
 # Reusable SSH options
 SSH_OPTIONS = -o PubkeyAuthentication=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no
@@ -10,7 +10,7 @@ SSH_OPTIONS = -o PubkeyAuthentication=no -o UserKnownHostsFile=/dev/null -o Stri
 MAKEFILE_DIR := $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
 
 # System name used in config
-NIXNAME := nixos
+NIXNAME ?= vm-aarch64
 
 # bootstrap a new VM. The VM should have booted the most recent ISO drive and its root user password
 # set to "root". This command will create a partition schema and install nixos. Afterwards, the
@@ -55,7 +55,8 @@ vm/init:
 	# copy config
 	NIXUSER=root $(MAKE) vm/copy
 	# build config
-	# NIXUSER=root $(MAKE) vm/switch
+	NIXUSER=root NIXNAME=vm-aarch64 $(MAKE) vm/switch
+	# done
 
 # copy keys to VM. This command will copy the .ssh and other key-stores to the vm specified.
 vm/keys:
@@ -77,6 +78,6 @@ vm/copy:
 # switch config on VM. This command will build the config stored in /vim-config on the vm. Use vm/copy
 # to update the config directory.
 vm/switch:
-	ssh $(SSH_OPTIONS) -p$(NIXPORT) $(NIXUSER)@$(NIXADDR) " \
+	ssh -tt $(SSH_OPTIONS) -p$(NIXPORT) $(NIXUSER)@$(NIXADDR) " \
 		sudo NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM=1 nixos-rebuild switch --flake \"/nix-config#${NIXNAME}\" \
 	"
