@@ -63,6 +63,8 @@ vm/keys:
 	# SSH keys
 	rsync -av -e 'ssh $(SSH_OPTIONS)' \
 		--exclude='environment' \
+		--exclude='known_hosts' \
+		--exclude='known_hosts.old' \
 		$(HOME)/.ssh/ $(NIXUSER)@$(NIXADDR):~/.ssh
 
 # copy config to VM. This command will copy all config files from this repo to the vm specified. Git-
