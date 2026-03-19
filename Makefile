@@ -81,3 +81,12 @@ vm/switch:
 	ssh -tt $(SSH_OPTIONS) -p$(NIXPORT) $(NIXUSER)@$(NIXADDR) " \
 		sudo NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM=1 nixos-rebuild switch --flake \"/nix-config#${NIXNAME}\" \
 	"
+
+# build config for WSL. This command will build the config for a wsl istance and stores the outputs in
+# ./result/tarball. Copy that to the windows machine and run the follwing commands
+#
+# `wsl --import nixos .\nixos .\path\to\nixos\tarball.tar.gz`
+#
+#	`wsl -d nixos`
+wsl:
+	nix build ".#nixosConfigurations.wsl.config.system.build.tarballBuilder"
