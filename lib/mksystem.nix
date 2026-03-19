@@ -42,5 +42,13 @@ systemFunc {
 
     machineConfig
     userOSConfig
+
+    {
+      config._module.args = {
+        currentSystem = system;
+        currentSystemName = name;
+        currentSystemUser = user;
+      };
+    }
   ];
 }
