@@ -17,6 +17,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Enable cross-compile
+  boot.binfmt.emulatedSystems = [ "x86_64-linux" ];
+
   # Set hostname
   networking.hostName = "nixos";
 
