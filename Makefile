@@ -19,11 +19,7 @@ UNAME := $(shell uname)
 # To test if the config changes are valid, use `make valid`. To "demo" the config without adding it to the 
 # bootloader, run `make test`
 make switch:
-	ifeq ($(UNAME), Darwin)
-		echo "TODO"
-	else
-		sudo nixos-rebuild switch --flake ".#${NIXNAME}"
-	endif
+	sudo nixos-rebuild switch --flake ".#${NIXNAME}"
 
 
 
