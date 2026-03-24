@@ -12,6 +12,21 @@ MAKEFILE_DIR := $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
 # System name used in config
 NIXNAME ?= vm-aarch64
 
+# Switch OS configs
+UNAME := $(shell uname)
+
+# build and switch config. This command will build the selected system config and switch to the new state.
+# To test if the config changes are valid, use `make valid`. To "demo" the config without adding it to the 
+# bootloader, run `make test`
+make switch:
+	ifeq ($(UNAME), Darwin)
+		echo "TODO"
+	else
+		sudo nixos-rebuild switch --flake ".#${NIXNAME}"
+	endif
+
+
+
 # bootstrap a new VM. The VM should have booted the most recent ISO drive and its root user password
 # set to "root". This command will create a partition schema and install nixos. Afterwards, the
 # host must be rebooted.
