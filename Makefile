@@ -3,6 +3,12 @@ NIXADDR ?= nixos
 NIXPORT ?= 22
 NIXUSER ?= max-pn
 
+# Default harddrive for Nix host
+NIXHDD ?= /dev/sda
+
+# Switch Partition Labels
+PARTION_LABEL := $(if $(filter /dev/nvme0n1,$(NIXHDD)),p,)
+
 # Reusable SSH options
 SSH_OPTIONS = -o PubkeyAuthentication=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no
 
@@ -32,20 +38,20 @@ make switch:
 vm/init:
 	# create partition schema
 	ssh $(SSH_OPTIONS) -p$(NIXPORT) root@$(NIXADDR) " \
-		parted /dev/sda -- mklabel gpt; \
-		parted /dev/sda -- mkpart root ext4 512MB -8GB; \
-		parted /dev/sda -- mkpart swap linux-swap -8GB 100%; \
-		parted /dev/sda -- mkpart ESP fat32 1MB 512MB; \
-		parted /dev/sda -- set 3 esp on; \
+		parted $(NIXHDD) -- mklabel gpt; \
+		parted $(NIXHDD) -- mkpart root ext4 512MB -8GB; \
+		parted $(NIXHDD) -- mkpart swap linux-swap -8GB 100%; \
+		parted $(NIXHDD) -- mkpart ESP fat32 1MB 512MB; \
+		parted $(NIXHDD) -- set 3 esp on; \
 		sleep 1; \
-		mkfs.ext4 -L nixos /dev/sda1; \
-		mkswap -L swap /dev/sda2; \
-		mkfs.fat -F 32 -n boot /dev/sda3; \
+		mkfs.ext4 -L nixos $(NIXHDD)$(PARTITION_LABEL)1; \
+		mkswap -L swap $(NIXHDD)$(PARTITION_LABEL)2; \
+		mkfs.fat -F 32 -n boot $(NIXHDD)$(PARTITION_LABEL)3; \
 		sleep 1; \
 		mount /dev/disk/by-label/nixos /mnt; \
 		mkdir -p /mnt/boot; \
 		mount -o umask=077 /dev/disk/by-label/boot /mnt/boot; \
-		swapon /dev/sda2; \
+		swapon $(NIXHDD)$(PARTITION_LABEL)2; \
 		sleep 1; \
 		nixos-generate-config --root /mnt; \
 		sleep 1; \

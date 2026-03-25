@@ -7,7 +7,6 @@
 
 {
   imports = [
-    ./hardware/vm-aarch64.nix
     ./shared.nix
   ];
 

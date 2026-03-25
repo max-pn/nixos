@@ -32,7 +32,12 @@
       };
     in
     {
-      nixosConfigurations.vm-aarch64 = mkSystem "vm-aarch64" {
+      nixosConfigurations.vm-aarch64-prl = mkSystem "vm-aarch64-prl" {
+        system = "aarch64-linux";
+        user = "max-pn";
+      };
+
+      nixosConfigurations.vm-aarch64-utm = mkSystem "vm-aarch64-utm" {
         system = "aarch64-linux";
         user = "max-pn";
       };
