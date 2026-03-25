@@ -40,7 +40,7 @@
   };
 
   swapDevices = [
-    { device = "/dev/disk/by-label/label"; }
+    { device = "/dev/disk/by-label/swap"; }
   ];
 
   nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";

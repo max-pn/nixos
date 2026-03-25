@@ -16,7 +16,7 @@ SSH_OPTIONS = -o PubkeyAuthentication=no -o UserKnownHostsFile=/dev/null -o Stri
 MAKEFILE_DIR := $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
 
 # System name used in config
-NIXNAME ?= vm-aarch64
+NIXNAME ?= vm-aarch64-prl
 
 # Switch OS configs
 UNAME := $(shell uname)
@@ -72,7 +72,7 @@ vm/init:
 	# copy config
 	NIXUSER=root $(MAKE) vm/copy
 	# build config
-	NIXUSER=root NIXNAME=vm-aarch64 $(MAKE) vm/switch
+	NIXUSER=root $(MAKE) vm/switch
 	# done
 
 # copy keys to VM. This command will copy the .ssh and other key-stores to the vm specified.
