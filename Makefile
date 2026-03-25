@@ -22,10 +22,16 @@ NIXNAME ?= vm-aarch64-prl
 UNAME := $(shell uname)
 
 # build and switch config. This command will build the selected system config and switch to the new state.
-# To test if the config changes are valid, use `make valid`. To "demo" the config without adding it to the 
+# To test if the config changes are valid, use `make check`. To "demo" the config without adding it to the 
 # bootloader, run `make test`
 make switch:
 	sudo nixos-rebuild switch --flake ".#${NIXNAME}"
+
+# check config. This command will validate the whole config including all systems. To "demo" the config without
+# adding it to the bootloader, run `make test`
+make check:
+	nix flake check
+
 
 
 
