@@ -27,14 +27,4 @@
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
-
-  # apply hypervisor auto-resizing fix
-  environment.systemPackages = with pkgs; [
-    xrandr
-
-    (writeShellScriptBin "xrandr-auto" ''
-      xrandr --output Virtual-1 --auto
-    '')
-
-  ];
 }

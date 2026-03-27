@@ -32,8 +32,11 @@ make switch:
 make check:
 	nix flake check
 
-
-
+# test config. This command will build the selected system config and switch to the new state WITHOUT adding
+# the result to the bootloader selector. After rebooting, the system will return to the last "switched" state.
+# Use `make switch` to add a change permanently.
+make test:
+	sudo nixos-rebuild test --flake ".#${NIXNAME}"
 
 # bootstrap a new VM. The VM should have booted the most recent ISO drive and its root user password
 # set to "root". This command will create a partition schema and install nixos. Afterwards, the
