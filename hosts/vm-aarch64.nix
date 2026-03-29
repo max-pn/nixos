@@ -28,6 +28,15 @@
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
+  # Enable X11 windowing system
+  services.xserver.enable = true;
+
+  # Enable gdm as login manager
+  services.displayManager.gdm.enable = true;
+
+  # Enable gnome desktop enviornment
+  services.displayManager.gnome.enable = true;
+
   # Enable hyprland desktop enviornment
   programs.hyprland.enable = true;
 }
