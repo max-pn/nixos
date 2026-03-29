@@ -35,7 +35,7 @@
   services.displayManager.gdm.enable = true;
 
   # Enable gnome desktop enviornment
-  services.displayManager.gnome.enable = true;
+  services.desktopManager.gnome.enable = true;
 
   # Enable hyprland desktop enviornment
   programs.hyprland.enable = true;
