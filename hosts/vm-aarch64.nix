@@ -27,4 +27,7 @@
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
+
+  # Enable hyprland desktop enviornment
+  programs.hyprland.enable = true;
 }
