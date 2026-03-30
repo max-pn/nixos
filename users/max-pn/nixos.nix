@@ -4,11 +4,15 @@
   users.users.max-pn = {
     isNormalUser = true;
     home = "/home/max-pn";
-    extraGroups = [ "wheel" ];
+    extraGroups = [
+      "docker"
+      "wheel"
+    ];
     shell = pkgs.bash;
     packages = with pkgs; [
-      neofetch
+      fastfetch
       neovim
+      tmux
     ];
     hashedPassword = "$y$j9T$fkD6/cMHtPBxzmI/QKBgw1$PkGPQejL1j3ofb3ed32RAAXdYMdWenbMtia.V9QIqW4";
     openssh.authorizedKeys.keys = [
