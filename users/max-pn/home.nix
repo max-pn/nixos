@@ -9,10 +9,10 @@
   home.stateVersion = "25.11";
 
   home.packages = with pkgs; [
-    "fastfetch"
-    "kitty"
-    "neovim"
-    "tmux"
-    "yazi"
+    fastfetch
+    kitty
+    neovim
+    tmux
+    yazi
   ];
 }
