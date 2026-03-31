@@ -8,7 +8,7 @@
 {
   home.stateVersion = "25.11";
 
-  home.packages = [
+  home.packages = with pkgs; [
     "fastfetch"
     "kitty"
     "neovim"
