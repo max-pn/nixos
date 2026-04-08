@@ -24,18 +24,18 @@ UNAME := $(shell uname)
 # build and switch config. This command will build the selected system config and switch to the new state.
 # To test if the config changes are valid, use `make check`. To "demo" the config without adding it to the 
 # bootloader, run `make test`
-make switch:
+switch:
 	sudo nixos-rebuild switch --flake ".#${NIXNAME}"
 
 # check config. This command will validate the whole config including all systems. To "demo" the config without
 # adding it to the bootloader, run `make test`
-make check:
+check:
 	nix flake check
 
 # test config. This command will build the selected system config and switch to the new state WITHOUT adding
 # the result to the bootloader selector. After rebooting, the system will return to the last "switched" state.
 # Use `make switch` to add a change permanently.
-make test:
+test:
 	sudo nixos-rebuild test --flake ".#${NIXNAME}"
 
 # bootstrap a new VM. The VM should have booted the most recent ISO drive and its root user password
