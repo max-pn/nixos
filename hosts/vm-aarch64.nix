@@ -60,17 +60,22 @@
   virtualisation.docker.enable = true;
 
   # Enable X11 windowing system
-  services.xserver.enable = true;
+  #services.xserver.enable = true;
 
   # Enable gdm as login manager
-  services.displayManager.gdm.enable = true;
+  #services.displayManager.gdm.enable = true;
 
   # Enable gnome desktop enviornment
-  services.desktopManager.gnome.enable = true;
+  #services.desktopManager.gnome.enable = true;
 
   # Enable hyprland desktop enviornment
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+  };
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  # OpenCL + mesa support in hyprland
+  hardware.graphics.enable = true;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.

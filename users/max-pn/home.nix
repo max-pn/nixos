@@ -9,10 +9,13 @@
   home.stateVersion = "25.11";
 
   home.packages = with pkgs; [
-    kdePackages.dolphin
     fastfetch
-    kitty
+    firefox
+    ghostty
+    kdePackages.dolphin
+    lazygit
     neovim
+    rofi
     tmux
     yazi
   ];
