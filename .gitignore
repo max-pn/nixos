@@ -1,5 +1,5 @@
 iso/*
-result/*
+result
 
 #--------------------------------------------------#
 # The following was generated with gitignore.nvim: #
