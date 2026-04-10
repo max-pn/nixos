@@ -60,17 +60,18 @@
   virtualisation.docker.enable = true;
 
   # Enable X11 windowing system
-  #services.xserver.enable = true;
+  services.xserver.enable = true;
 
   # Enable gdm as login manager
-  #services.displayManager.gdm.enable = true;
+  services.displayManager.gdm.enable = true;
 
   # Enable gnome desktop enviornment
-  #services.desktopManager.gnome.enable = true;
+  services.desktopManager.gnome.enable = true;
 
   # Enable hyprland desktop enviornment
   programs.hyprland = {
     enable = true;
+    xwayland.enable = true;
   };
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
