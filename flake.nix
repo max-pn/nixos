@@ -25,45 +25,5 @@
     };
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      darwin,
-      home-manager,
-      ...
-    }@inputs:
-    let
-      mkSystem = import ./lib/mksystem.nix {
-        inherit nixpkgs inputs;
-      };
-    in
-    {
-      nixosConfigurations.vm-aarch64-vmw = mkSystem "vm-aarch64-vmw" {
-        system = "aarch64-linux";
-        user = "max-pn";
-      };
-
-      nixosConfigurations.vm-aarch64-prl = mkSystem "vm-aarch64-prl" {
-        system = "aarch64-linux";
-        user = "max-pn";
-      };
-
-      nixosConfigurations.vm-aarch64-utm = mkSystem "vm-aarch64-utm" {
-        system = "aarch64-linux";
-        user = "max-pn";
-      };
-
-      nixosConfigurations.wsl = mkSystem "wsl" {
-        system = "x86_64-linux";
-        user = "max-pn";
-        wsl = true;
-      };
-
-      darwinConfigurations.darwin = mkSystem "darwin" {
-        system = "aarch64-darwin";
-        user = "max-pn";
-        darwin = true;
-      };
-    };
+  outputs = inputs: import ./outputs  inputs;
 }
