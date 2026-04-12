@@ -23,7 +23,17 @@
       url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # NeoVim config
+    #
+    # NOTE: this may not be the "nix-way" but I prefer using this over
+    # alternatives like nixvim as they in my eyes lack the last bit I need this
+    # to run smoothly
+    nvim-config = {
+      url = "github:max-pn/nvim-config";
+      flake = false;
+    };
   };
 
-  outputs = inputs: import ./outputs  inputs;
+  outputs = inputs: import ./outputs inputs;
 }
