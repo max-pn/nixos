@@ -3,7 +3,8 @@
 }:
 {
   imports = [
-    ./nvim.nix
     ./fzf.nix
+    ./nvim.nix
+    ./tmux.nix
   ];
 }

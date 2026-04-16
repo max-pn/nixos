@@ -18,9 +18,7 @@
     ghostty
     kdePackages.dolphin
     lazygit
-    neovim
     rofi
-    tmux
     yazi
   ];
 }
