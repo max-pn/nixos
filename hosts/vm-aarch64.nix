@@ -51,6 +51,8 @@
 
   # System-wide packages
   environment.systemPackages = with pkgs; [
+    cmake
+    gcc
     git
     gnumake
     vim
