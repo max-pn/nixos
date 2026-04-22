@@ -8,6 +8,7 @@
 {
   imports = [
     ../../modules/dev
+    ../../modules/hyprland
   ];
 
   home.stateVersion = "25.11";
