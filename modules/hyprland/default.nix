@@ -9,9 +9,13 @@
   wayland.windowManager.hyprland = {
     enable = true;
 
+    # reuse system package
+    package = null;
+    portalPackage = null;
+
     settings = {
       # default apps
-      "$terminal" = "kitty";
+      "$terminal" = "ghostty";
       "$fileManager" = "dolphin";
       "$menu" = "rofi -show drun";
 
@@ -19,7 +23,7 @@
       "$mainMod" = "SUPER";
 
       # monitor setup
-      monitor = ",preferred,auto,auto";
+      monitor = ",preferred,auto,1";
 
       # keyboard & mouse settings
       input = {
@@ -119,19 +123,24 @@
 
       # keybindings
       bind = [
-        "$mainMod, Q, exec, $terminal"
-        "$mainMod, C, killactive,"
+        "$mainMod, return, exec, $terminal"
+        "$mainMod, Q, killactive,"
         "$mainMod, M, exit,"
         "$mainMod, E, exec, $fileManager"
         "$mainMod, V, togglefloating,"
-        "$mainMod, R, exec, $menu"
+        "$mainMod, space, exec, $menu"
         "$mainMod, P, pseudo,"
         "$mainMod, J, togglesplit,"
 
-        "$mainMod, left, movefocus, l"
-        "$mainMod, right, movefocus, r"
-        "$mainMod, up, movefocus, u"
-        "$mainMod, down, movefocus, d"
+        "$mainMod, H, movefocus, l"
+        "$mainMod, L, movefocus, r"
+        "$mainMod, K, movefocus, u"
+        "$mainMod, J, movefocus, d"
+
+        "$mainMod SHIFT, H, movewindow, l"
+        "$mainMod SHIFT, L, movewindow, r"
+        "$mainMod SHIFT, K, movewindow, u"
+        "$mainMod SHIFT, J, movewindow, d"
 
         "$mainMod, 1, workspace, 1"
         "$mainMod, 2, workspace, 2"
