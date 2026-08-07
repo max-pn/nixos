@@ -7,7 +7,7 @@ NIXUSER ?= max-pn
 NIXHDD ?= /dev/sda
 
 # Switch Partition Labels
-PARTION_LABEL := $(if $(filter /dev/nvme0n1,$(NIXHDD)),p,)
+PARTITION_LABEL := $(if $(filter /dev/nvme% /dev/mmcblk%,$(NIXHDD)),p,)
 
 # Reusable SSH options
 SSH_OPTIONS = -o PubkeyAuthentication=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no
