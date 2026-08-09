@@ -11,6 +11,7 @@
 
     # config dependencies
     fzf
+    ripgrep
 
     # lsp
     nixd

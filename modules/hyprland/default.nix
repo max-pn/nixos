@@ -9,6 +9,8 @@
   wayland.windowManager.hyprland = {
     enable = true;
 
+    configType = "hyprlang";
+
     # reuse system package
     package = null;
     portalPackage = null;
