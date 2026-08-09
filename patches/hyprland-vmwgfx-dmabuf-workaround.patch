@@ -22,7 +22,7 @@ index 4f59e4b..32df2b6 100644
 +    // See: https://github.com/hyprwm/Hyprland/issues/7658
 +    //      https://gitlab.freedesktop.org/wlroots/wlroots/-/issues/1791
 +    if (PROTO::linuxDma->m_isVmwgfx) {
-+        LOGM(LOG, "Skipping PRIME validation for vmwgfx driver");
++        LOGM(Log::INFO, "Skipping PRIME validation for vmwgfx driver");
 +        return true;
 +    }
 +
@@ -38,7 +38,7 @@ index 4f59e4b..32df2b6 100644
 +        if (version) {
 +            if (version->name && std::string(version->name) == "vmwgfx") {
 +                m_isVmwgfx = true;
-+                LOGM(WARN, "Detected vmwgfx driver - enabling compatibility workarounds for DMA-BUF handling");
++                LOGM(Log::WARN, "Detected vmwgfx driver - enabling compatibility workarounds for DMA-BUF handling");
 +            }
 +            drmFreeVersion(version);
 +        }
@@ -46,7 +46,7 @@ index 4f59e4b..32df2b6 100644
 +        // Also check via env var override
 +        if (const char* env = getenv("HYPRLAND_DMABUF_SKIP_PRIME_CHECK"); env && std::string(env) == "1") {
 +            m_isVmwgfx = true;
-+            LOGM(WARN, "HYPRLAND_DMABUF_SKIP_PRIME_CHECK=1 - skipping PRIME validation");
++            LOGM(Log::WARN, "HYPRLAND_DMABUF_SKIP_PRIME_CHECK=1 - skipping PRIME validation");
 +        }
 +
          drmDevice* device = nullptr;
