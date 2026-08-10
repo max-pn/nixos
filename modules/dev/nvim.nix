@@ -9,9 +9,10 @@
   home.packages = with pkgs; [
     neovim
 
-    # config dependencies
+    # plugin dependencies
     fzf
     ripgrep
+    imagemagick
 
     # lsp
     clang
@@ -21,13 +22,13 @@
     lua-language-server
     marksman
     nixd
-    # prisma-language-server # "prismals"
+    prisma-language-server # "prismals"
     pyright
-    # tailwindcss-language-server
+    tailwindcss-language-server
     texlab
     typescript-language-server
 
-    # format & lint
+    # formatters
     texlivePackages.latexindent
     nixfmt
     prettier
@@ -35,6 +36,16 @@
     pylint
     ruff
     stylua
+
+    # linters
+    biome
+    checkstyle
+    eslint_d
+    pylint
+
+    # support
+    latexminted
+    texlivePackages.latexmk
   ];
 
   xdg.configFile."nvim".source = inputs.nvim-config;
