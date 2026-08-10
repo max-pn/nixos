@@ -6,7 +6,11 @@
 }:
 let
   luaFiles = [
-    ./config.lua
+    ./inputs.lua
+    ./monitor.lua
+    ./apps.lua
+    ./autostarts.lua
+    ./appearance.lua
     ./animations.lua
     ./bindings.lua
     ./rules.lua
