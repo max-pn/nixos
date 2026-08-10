@@ -14,7 +14,18 @@
     ripgrep
 
     # lsp
+    clang
+    cmake
+    vscode-json-languageserver # "jsonls"
+    ltex-ls-plus
+    lua-language-server
+    marksman
     nixd
+    # prisma-language-server # "prismals"
+    pyright
+    # tailwindcss-language-server
+    texlab
+    typescript-language-server
 
     # format & lint
     pylint
