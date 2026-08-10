@@ -14,6 +14,7 @@
   home.stateVersion = "25.11";
 
   home.packages = with pkgs; [
+    corefonts
     fastfetch
     firefox
     ghostty
