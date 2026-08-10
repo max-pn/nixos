@@ -1,5 +1,23 @@
 {
   "nodes": {
+    "clipway": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1782896186,
+        "narHash": "sha256-rzJdM4LbCyfBRqDhk8yur2rrmXHpNYxwhKVSjPaXhwY=",
+        "owner": "krisztianfekete",
+        "repo": "clipway",
+        "rev": "068be84c60d08c7b6709f2e38507f6da1ffd2031",
+        "type": "github"
+      },
+      "original": {
+        "owner": "krisztianfekete",
+        "repo": "clipway",
+        "type": "github"
+      }
+    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -81,6 +99,22 @@
     },
     "nixpkgs": {
       "locked": {
+        "lastModified": 1781509190,
+        "narHash": "sha256-uJZs9Di8I6ciTp6jiojj0HzlNpBkud8ax5aT/O5aJkw=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "d6df3513510aa548c83868fd22bfddd0a8c0a0d4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-25.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
         "lastModified": 1786201459,
         "narHash": "sha256-CiOTEjmwAmG2AWnaIno9YaCJJmpca2FXPhMAsnrolCg=",
         "owner": "nixos",
@@ -113,10 +147,11 @@
     },
     "root": {
       "inputs": {
+        "clipway": "clipway",
         "darwin": "darwin",
         "home-manager": "home-manager",
         "nixos-wsl": "nixos-wsl",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": "nixpkgs_2",
         "nvim-config": "nvim-config"
       }
     }
