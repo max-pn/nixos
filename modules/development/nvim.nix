@@ -29,7 +29,6 @@
     typescript-language-server
 
     # formatters
-    texlivePackages.latexindent
     nixfmt
     prettier
     prettierd
@@ -44,8 +43,10 @@
     pylint
 
     # support
-    latexminted
-    texlivePackages.latexmk
+    texliveFull
+    inkscape
+    skimpdf
+    zathura
   ];
 
   xdg.configFile."nvim".source = inputs.nvim-config;
