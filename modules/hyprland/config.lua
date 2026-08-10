@@ -1,7 +1,13 @@
+-- default apps
 local terminal = "ghostty"
 local fileManager = "dolphin"
 local menu = "rofi -show drun"
 local mainMod = "SUPER"
+
+-- autostarts
+hl.on("hyprland.start", function()
+	hl.exec_cmd("ibus-daemon -dr")
+end)
 
 hl.monitor({
 	output = "",
