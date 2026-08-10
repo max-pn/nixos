@@ -33,6 +33,15 @@
       url = "github:max-pn/nvim-config";
       flake = false;
     };
+
+    # open-vm-tools-clipware
+    #
+    # fix for vm guest tools to support copypasting host<->guest
+    # WARN: this is a third-party test, mind the repo's disclaimer
+    # and do not use for every host
+    clipway = {
+      url = "github:krisztianfekete/clipway";
+    };
   };
 
   outputs = inputs: import ./outputs inputs;

@@ -1,4 +1,5 @@
 {
+  inputs,
   config,
   pkgs,
   lib,
@@ -16,6 +17,7 @@ in
   imports = [
     ./hardware/vm-aarch64-vmw.nix
     ./vm-aarch64.nix
+    inputs.clipway.nixosModules.default
   ];
 
   # Enable vmware guest tools
@@ -25,5 +27,18 @@ in
   programs.hyprland = {
     enable = true;
     package = hyprlandVmwgfxPatched;
+  };
+
+  # apply open-vm-tools clipway patch
+  #
+  # WARN: this is an unofficial community patch actively briding
+  # the host<->guest clipboard
+  # do not use in high-risk enviornment to prevent secret leakage
+  #
+  # FIX: this is only necessary because wayland is not yet offically
+  # supported by vm-guest-tools.
+  services.clipway = {
+    enable = true;
+    target = "hyprland-session.target";
   };
 }
