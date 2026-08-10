@@ -26,6 +26,15 @@
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
+  # Enable ibus
+  i18n.inputMethod = {
+    enable = true;
+    type = "ibus";
+  };
+  environment.sessionVariables.GTK_IM_MODULE = "ibus";
+  environment.sessionVariables.QT_IM_MODULE = "ibus";
+  environment.sessionVariables.XMODIFIERS = "@im=ibus";
+
   # Locales
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
