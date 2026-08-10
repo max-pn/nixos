@@ -28,8 +28,13 @@
     typescript-language-server
 
     # format & lint
-    pylint
+    texlivePackages.latexindent
     nixfmt
+    prettier
+    prettierd
+    pylint
+    ruff
+    stylua
   ];
 
   xdg.configFile."nvim".source = inputs.nvim-config;
