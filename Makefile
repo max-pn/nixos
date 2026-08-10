@@ -118,3 +118,11 @@ vm/switch:
 #	`wsl -d nixos`
 wsl:
 	nix build ".#nixosConfigurations.wsl.config.system.build.tarballBuilder"
+
+# sync latest changes to neovim config. this command will updat the nvim-config channel and
+# switch to the latest state on nvim-config:main
+#
+# check the git worktree before as this will switch to the current state of this working dir
+nvim/sync:
+	nix flake update nvim-config
+	${MAKE} switch	
