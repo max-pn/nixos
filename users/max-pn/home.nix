@@ -7,7 +7,7 @@
 
 {
   imports = [
-    ../../modules/dev
+    ../../modules/development
     ../../modules/hyprland
   ];
 
