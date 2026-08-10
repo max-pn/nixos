@@ -16,9 +16,6 @@ hl.monitor({
 	scale = 1,
 })
 
-hl.env("XCURSOR_SIZE", "24")
-hl.env("HYPRCURSOR_SIZE", "24")
-
 hl.config({
 	input = {
 		kb_layout = "us",
@@ -33,6 +30,10 @@ hl.config({
 			natural_scroll = false,
 		},
 	},
+
+  cursor = {
+    invisible = true,
+  },
 
 	general = {
 		gaps_in = 5,
