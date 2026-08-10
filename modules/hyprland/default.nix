@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  inputs,
   ...
 }:
 let
@@ -14,6 +13,19 @@ let
   ];
 in
 {
+  home.packages = with pkgs; [
+    hyprpaper
+  ];
+
+  xdg.configFile."hypr/hyprpaper.conf".text = ''
+    wallpaper {
+      monitor =
+      path = ${config.home.homeDirectory}/Pictures/Wallpapers/porsche.jpg
+      fit_mode = cover
+    }
+    splash = false
+  '';
+
   wayland.windowManager.hyprland = {
     enable = true;
 
