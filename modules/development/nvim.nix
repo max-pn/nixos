@@ -43,7 +43,7 @@
     pylint
 
     # support
-    texliveFull
+    # texliveFull
     inkscape
     skimpdf
     zathura
