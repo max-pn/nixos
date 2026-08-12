@@ -24,7 +24,7 @@ in
   xdg.configFile."hypr/hyprpaper.conf".text = ''
     wallpaper {
       monitor =
-      path = ${config.home.homeDirectory}/Pictures/Wallpapers/porsche.jpg
+      path = ${config.home.homeDirectory}/Pictures/Wallpapers/wallpaper.jpg
       fit_mode = cover
     }
     splash = false
