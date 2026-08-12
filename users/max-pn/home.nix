@@ -16,10 +16,10 @@
   home.packages = with pkgs; [
     corefonts
     fastfetch
-    firefox
     ghostty
-    kdePackages.dolphin
+    google-chrome
     lazygit
+    nautilus
     rofi
     yazi
   ];

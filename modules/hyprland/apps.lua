@@ -1,4 +1,4 @@
 local terminal = "ghostty"
-local fileManager = "dolphin"
+local fileManager = "nautilus"
 local menu = "rofi -show drun"
 local mainMod = "SUPER"
