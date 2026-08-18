@@ -18,6 +18,7 @@
     clang
     cmake
     vscode-json-languageserver # "jsonls"
+    jdt-language-server
     ltex-ls-plus
     lua-language-server
     marksman
@@ -43,7 +44,6 @@
     pylint
 
     # support
-    # texliveFull
     inkscape
     skimpdf
     zathura

@@ -14,6 +14,8 @@
   home.stateVersion = "25.11";
 
   home.packages = with pkgs; [
+    _1password-cli
+    _1password-gui
     corefonts
     fastfetch
     ghostty
